@@ -31,7 +31,7 @@ def compute_next_state(state):
 
 
 def start(initial_state=None, loop_delay=1, size=(100, 100)):
-    if initial_stat is None:
+    if initial_state is None:
         state = get_initial_state(size)
     else:
         state = intial_state
