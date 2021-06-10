@@ -29,7 +29,7 @@ def compute_next_state(state):
     return new_state
 
 
-def start(initial_state=None, loop_delay=1, size=(800, 800)):
+def start(initial_state=None, loop_delay=1, size=(200, 200)):
     if initial_state is None:
         state = get_initial_state(size)
     else:
