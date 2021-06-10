@@ -40,20 +40,23 @@ def start(initial_state=None, loop_delay=1, size=(200, 200)):
     counter = 0
 
     while True:
-        state = compute_next_state(state)
-        age += state
-        age = age * state
+        new_state = compute_next_state(state)
+        age += new_state
+        age = age * new_state
         counter += 1
-        plt.imshow(state)
+        plt.imshow(age, cmap='Greys')
         plt.xlim(right=size[1], left=0)
         plt.ylim(top=0, bottom=size[0])
         plt.pause(loop_delay)
 
-        if np.sum(state) == 0:
+        if (np.sum(new_state) == 0) or (new_state == state).all():
             print(counter)
             state = get_initial_state(size)
             age = np.zeros(size, dtype=int)
             counter = 0
+
+        else:
+            state = new_state
 
 if __name__ == "__main__":
     start()
